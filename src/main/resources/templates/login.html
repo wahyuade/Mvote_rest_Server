@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>Login Page</title>
+</head>
+<body>
+<form action="#" th:action="@{/hasil}" th:object="${adminmodel}" method="post">
+    <p>username</p><br/>
+    <input type="text" th:field="*{username}" /><br/>
+    <p>password</p><br/>
+    <input type="password" th:field="*{password}" /><br/><br/>
+    <input type="submit" value="login"/>
+</form>
+<h2>Super user yang telah login</h2>
+<ul th:each="user : ${useryangtelahlogin}">
+    <li th:text="${user.nama}"></li>
+</ul>
+</body>
+</html>
