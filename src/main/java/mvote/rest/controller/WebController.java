@@ -28,6 +28,12 @@ public class WebController {
     @Autowired
     private UserService userService;
 
+    @GetMapping("/")
+    public String home(){
+        return "redirect:/hasil";
+    }
+
+
     @GetMapping("/hasil")
     public String index(Model model){
         ArrayList<AdminModel> data_admin = adminService.findByStatusLogin("1");
