@@ -12,26 +12,32 @@ import javax.persistence.Table;
 @Table(name="users")
 public class UserModel {
     @Id
+    private String id;
+
     @Column(name = "nrp")
     private String nrp;
 
     @Column(name = "token")
     private String token;
 
-    @Column(name = "global")
-    private String global;
+    @Column(name = "v")
+    private String v;
 
-    @Column(name = "local")
-    private String local;
+    @Column(name = "n")
+    private String n;
 
-    @Column(name = "statustoken")
-    private String statusToken;
+    @Column(name = "x")
+    private String x;
 
-    @Column(name = "statuspilih")
-    private String statusPilih;
-
-    @Column(name = "waktulogin")
+    @Column(name = "waktu_login")
     private Long waktuLogin;
+
+    public Long getWaktuLogin() {
+        return waktuLogin;
+    }
+
+    public UserModel() {
+    }
 
     public String getNrp() {
         return nrp;
@@ -41,32 +47,24 @@ public class UserModel {
         return token;
     }
 
-    public String getGlobal() {
-        return global;
+    public String getV() {
+        return v;
     }
 
-    public String getLocal() {
-        return local;
+    public String getN() {
+        return n;
     }
 
-    public String getStatusToken() {
-        return statusToken;
+    public String getId() {
+        return id;
     }
 
-    public String getStatusPilih() {
-        return statusPilih;
+    public void setX(String x) {
+        this.x = x;
     }
 
-    public Long getWaktuLogin() {
-        return waktuLogin;
-    }
-
-    public void setStatusToken(String statusToken) {
-        this.statusToken = statusToken;
-    }
-
-    public void setStatusPilih(String statusPilih) {
-        this.statusPilih = statusPilih;
+    public String getX() {
+        return x;
     }
 
     public void setWaktuLogin(Long waktuLogin) {

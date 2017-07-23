@@ -3,9 +3,16 @@ package mvote.rest.model;
 /**
  * Created by wahyuade on 16/07/17.
  */
-public class LoginModel {
+public class ChallangeModel {
     private boolean success;
     private String message;
+    private Long c;
+
+    public ChallangeModel(boolean success, String message, Long c) {
+        this.success = success;
+        this.message = message;
+        this.c = c;
+    }
 
     public boolean isSuccess() {
         return success;
@@ -15,9 +22,7 @@ public class LoginModel {
         return message;
     }
 
-
-    public LoginModel(boolean success, String message) {
-        this.success = success;
-        this.message = message;
+    public Long getC() {
+        return c;
     }
 }

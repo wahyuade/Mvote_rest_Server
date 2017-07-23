@@ -9,4 +9,5 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface SuaraService extends JpaRepository<SuaraModel, Long>{
     int countByIdCalon(String idCalon);
+
 }

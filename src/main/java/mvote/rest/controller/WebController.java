@@ -29,7 +29,7 @@ public class WebController {
     private UserService userService;
 
     @GetMapping("/hasil")
-    public String index(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model){
+    public String index(Model model){
         ArrayList<AdminModel> data_admin = adminService.findByStatusLogin("1");
         if(adminService.count() != data_admin.size()){
             model.addAttribute("useryangtelahlogin", data_admin);
@@ -37,11 +37,11 @@ public class WebController {
             return "login";
         }else{
 
-            model.addAttribute("totalsuara", userService.countByStatusToken("1"));
+            model.addAttribute("totalsuara", userService.countByWaktuLoginNotNull());
             model.addAttribute("urut1", suaraService.countByIdCalon("1"));
             model.addAttribute("urut2", suaraService.countByIdCalon("2"));
-            model.addAttribute("suarasah", userService.countByStatusPilih("1"));
-            model.addAttribute("suaraabstain", userService.countByStatusToken("1") - userService.countByStatusPilih("1"));
+            model.addAttribute("suarasah", suaraService.count());
+            model.addAttribute("suaraabstain", userService.countByWaktuLoginNotNull() - suaraService.count());
 
             return "index";
         }
@@ -59,7 +59,7 @@ public class WebController {
                 return "redirect:/hasil";
             }
         }else{
-            return "redirect:/halo";
+            return "redirect:/hasil";
         }
     }
 }
