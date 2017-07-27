@@ -5,8 +5,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<p th:text="'Suara No Urut 1 : ' + ${urut1}" />
-<p th:text="'Suara No Urut 2 : ' + ${urut2}" />
+<div th:each="calon : ${data_hitung}">
+    <p th:text="'Suara No Urut '+${calon.id}+' : '+${calon.suara}" />
+</div>
 <p th:text="'Total Suara Sah : ' + ${suarasah}" />
 <p th:text="'Total Abstain : ' + ${suaraabstain}" />
 <p th:text="'Total Suara Masuk : ' + ${totalsuara}" />

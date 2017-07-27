@@ -3,6 +3,7 @@ package mvote.rest.model;
 /**
  * Created by wahyuade on 16/07/17.
  */
+
 public class DefaultModel {
     private boolean success;
     private String message;

@@ -123,8 +123,8 @@
   <library name="Gradle: org.slf4j:jcl-over-slf4j:1.7.25">
     <archive path="/home/wahyuade/.gradle/caches/modules-2/files-2.1/org.slf4j/jcl-over-slf4j/1.7.25/f8c32b13ff142a513eeb5b6330b1588dcb2c0461/jcl-over-slf4j-1.7.25.jar" />
   </library>
-  <library name="Gradle: org.slf4j:jul-to-slf4j:1.7.25">
-    <archive path="/home/wahyuade/.gradle/caches/modules-2/files-2.1/org.slf4j/jul-to-slf4j/1.7.25/af5364cd6679bfffb114f0dec8a157aaa283b76/jul-to-slf4j-1.7.25.jar" />
+  <library name="Gradle: org.slf4j:jul-text-slf4j:1.7.25">
+    <archive path="/home/wahyuade/.gradle/caches/modules-2/files-2.1/org.slf4j/jul-text-slf4j/1.7.25/af5364cd6679bfffb114f0dec8a157aaa283b76/jul-text-slf4j-1.7.25.jar" />
   </library>
   <library name="Gradle: org.slf4j:log4j-over-slf4j:1.7.25">
     <archive path="/home/wahyuade/.gradle/caches/modules-2/files-2.1/org.slf4j/log4j-over-slf4j/1.7.25/a87bb47468f47ee7aabbd54f93e133d4215769c3/log4j-over-slf4j-1.7.25.jar" />

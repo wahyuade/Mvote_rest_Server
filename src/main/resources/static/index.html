@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>M-Vote Monitoring Device</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="/app.js"></script>
+    <style>
+        #map {
+            width: 100vw;
+            height: 80vh;
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+<noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
+    enabled. Please enable
+    Javascript and reload this page!</h2></noscript>
+<body>
+<h3 class="text-center">Monitoring Device</h3>
+<div id="map"></div>
+<p>Jumlah Voter terverifikasi : <span id="terverifikasi"></span></p>
+<p>Jumlah Voter login : <span id="login"></span></p>
+<p>Jumlah Voter berhasil vote : <span id="vote"></span></p>
+</body>
+</body>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgHH99_sbUt_G5lZO7cp-CBH9TbfmeD6M&callback=initMap">
+</script>
+</html>

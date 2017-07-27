@@ -92,14 +92,13 @@ public class PilihController {
         if(((x.multiply(v.pow(c))).mod(n).equals((y.multiply(y)).mod(n))) && challange){
 
             UserModel data_user = userService.findUserModelByNrp(nrp);
-            Long end_time = new Date().getTime() - data_user.getWaktuLogin();
-            end_time = data_user.getWaktuLogin() - end_time;
+            Long end_time = data_user.getWaktuLogin() - 180000;
             data_user.setWaktuLogin(end_time);
             userService.save(data_user);
 
             String uuid = UUID.randomUUID().toString();
 
-            SuaraModel suara = new SuaraModel(id_calon, uuid);
+            SuaraModel suara = new SuaraModel(h_value, uuid);
             suaraService.save(suara);
 
             return new DefaultModel(true,"Selamat Anda berhasil memilih");
