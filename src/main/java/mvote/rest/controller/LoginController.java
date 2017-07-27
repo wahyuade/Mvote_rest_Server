@@ -20,8 +20,8 @@ public class LoginController {
 
     @PostMapping("/login")
     public LoginModel dopost(@RequestPart String nrp, @RequestPart String token){
-        int before_time = 23;
-        int after_time = 07;
+        int before_time = 13;
+        int after_time = 01;
         int now = LocalDateTime.now().getHour();
         if(now > after_time && now < before_time){
             UserModel dataLogin = userService.findUserModelByNrp(nrp);
