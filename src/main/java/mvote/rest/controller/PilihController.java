@@ -45,8 +45,11 @@ public class PilihController {
     @PostMapping("/check_m")
     public ChallangeModel postPilihCalon(@RequestParam String value_n, @RequestParam String x, @RequestPart String h){
         boolean challange = false;
+        System.out.println("Menerima x, h pada : "+ System.nanoTime());
+
         String message = "Invalid hash String";
         UserModel data_login = userService.findUserModelByN(value_n);
+        System.out.println("Validasi h pada : "+ System.nanoTime());
         for(int i = 1 ; i<=calonService.count(); i++){
             if(BCrypt.checkpw(Integer.toString(i), h)){
                 challange = true;
@@ -56,6 +59,7 @@ public class PilihController {
                 message = "Success Verified hash String";
             }
         }
+        System.out.println("Selesai Validasi h pada : "+ System.nanoTime());
         if(challange){
             return new ChallangeModel(challange, message, Math.round(Math.random()));
         }else{
@@ -66,6 +70,7 @@ public class PilihController {
 
     @PostMapping("/vote_validate")
     public DefaultModel postVoteValidate(@RequestPart String nrp, @RequestPart String y_value, @RequestPart String h_value, @RequestPart String c_value){
+        System.out.println("Menerima y,h,c pada : "+ System.nanoTime());
         BigInteger v = new BigInteger(userService.findUserModelByNrp(nrp).getV());
         BigInteger n = new BigInteger(userService.findUserModelByNrp(nrp).getN());
         BigInteger x = new BigInteger(userService.findUserModelByNrp(nrp).getX());
@@ -89,8 +94,9 @@ public class PilihController {
         System.out.println("value of v :"+v);
         System.out.println("value of c :"+c);
 
+        System.out.println("Proses x*v^c mod n = y^y mod n pada : "+ System.nanoTime());
         if(((x.multiply(v.pow(c))).mod(n).equals((y.multiply(y)).mod(n))) && challange){
-
+            System.out.println("Selesai proses x*v^c mod n = y^y mod n pada : "+ System.nanoTime());
             UserModel data_user = userService.findUserModelByNrp(nrp);
             Long end_time = data_user.getWaktuLogin() - 180000;
             data_user.setWaktuLogin(end_time);
