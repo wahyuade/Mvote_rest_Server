@@ -19,6 +19,8 @@ import java.util.UUID;
  */
 @RestController
 public class PilihController {
+    Double c;
+
     @Autowired
     private CalonService calonService;
 
@@ -60,8 +62,12 @@ public class PilihController {
             }
         }
         System.out.println("Selesai Validasi h pada : "+ System.nanoTime());
+        System.out.println("generate c : "+ System.nanoTime());
+        c=Math.random();
+        System.out.println("selesai generate c : "+ System.nanoTime());
         if(challange){
-            return new ChallangeModel(challange, message, Math.round(Math.random()));
+            System.out.println("pengiriman c : "+ System.nanoTime());
+            return new ChallangeModel(challange, message, Math.round(c));
         }else{
             return new ChallangeModel(challange, message, null);
         }
@@ -70,6 +76,7 @@ public class PilihController {
 
     @PostMapping("/vote_validate")
     public DefaultModel postVoteValidate(@RequestPart String nrp, @RequestPart String y_value, @RequestPart String h_value, @RequestPart String c_value){
+        System.out.println("terima lokasi vote: "+ System.nanoTime());
         System.out.println("Menerima y,h,c pada : "+ System.nanoTime());
         BigInteger v = new BigInteger(userService.findUserModelByNrp(nrp).getV());
         BigInteger n = new BigInteger(userService.findUserModelByNrp(nrp).getN());
