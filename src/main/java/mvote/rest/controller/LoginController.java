@@ -20,6 +20,7 @@ public class LoginController {
 
     @PostMapping("/login")
     public LoginModel dopost(@RequestPart String nrp, @RequestPart String token){
+        System.out.println("terima lokasi login : "+ System.nanoTime());
         int before_time = 13;
         int after_time = 01;
         int now = LocalDateTime.now().getHour();
